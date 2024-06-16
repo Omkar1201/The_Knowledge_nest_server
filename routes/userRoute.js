@@ -5,9 +5,11 @@ const {auth}=require('../middleware/auth')
 const {createpost,getAllpost,getMyposts,deletepost,editpost,getCategoryPosts,savedposts}=require('../controllers/Post')
 const {createlike,unlike}=require('../controllers/Like')
 const {createComment,deletecomment,editComment}=require('../controllers/Comment')
+const {DeleteAccount}=require('../controllers/DeleteAccount')
 
 router.delete('/deletepost',auth,deletepost)
 router.delete('/deletecomment',auth,deletecomment)
+router.delete('/deleteaccount',DeleteAccount)
 
 router.put('/editpost',auth,editpost);
 router.put('/editcomment',auth,editComment);
@@ -20,7 +22,6 @@ router.post('/like',auth,createlike)
 router.post('/unlike',auth,unlike)
 router.post('/createcomment',auth,createComment)
 router.post('/category',getCategoryPosts)
-
 
 router.get('/home',getAllpost)
 

@@ -6,7 +6,7 @@ const connectDB=require('./config/database')
 
 require('dotenv').config()
 const corsOptions={
-    origin:`${process.env.BASE_URL}`,
+    origin:[`${process.env.BASE_URL}`,'https://the-knowledge-nest.netlify.app'],
     methods:"GET,POST,PUT,DELETE,PATCH,HEAD",
     credentials:true
 }
