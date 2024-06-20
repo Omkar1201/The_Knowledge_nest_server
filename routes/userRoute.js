@@ -9,7 +9,7 @@ const {DeleteAccount}=require('../controllers/DeleteAccount')
 
 router.delete('/deletepost',auth,deletepost)
 router.delete('/deletecomment',auth,deletecomment)
-router.delete('/deleteaccount',DeleteAccount)
+router.delete('/deleteaccount',auth,DeleteAccount)
 
 router.put('/editpost',auth,editpost);
 router.put('/editcomment',auth,editComment);

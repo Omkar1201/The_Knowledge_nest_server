@@ -119,6 +119,7 @@ const savedposts = async (req, res) => {
     try {
         const { post_id, user_id, saved } = req.body;
         var updatedPostData;
+        // Save karaychey
         if (saved) {
             updatedPostData = await post.findByIdAndUpdate(post_id, { $push: { savedby: user_id } }, { new: true }).populate('likes').populate('comments').exec()
         }

@@ -4,7 +4,7 @@ const comment = require('../models/Commentmodel')
 const user = require('../models/User')
 const DeleteAccount = async (req, res) => {
     try {
-        const { user_id } = req.body;
+        const { user_id } = req.user;
         const deleteduser = await user.findByIdAndDelete(user_id);
         const allpost = await post.find({}).populate('likes').populate('comments').exec()
         allpost.map(async (data) => (
@@ -36,7 +36,7 @@ const DeleteAccount = async (req, res) => {
         res.send({
             success: true,
             deleteduser,
-            message: `Account of is deleted successfully!!`
+            message: `Account of ${deleteduser.username} is deleted successfully!!`
         })
         // const deletedposts=await post.find
     }
